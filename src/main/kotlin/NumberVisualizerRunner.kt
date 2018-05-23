@@ -13,15 +13,15 @@ fun main(args: Array<String>) {
 
 class NumberVisualizer {
     val random = Random()
-    val imageWidth = 1250
-    val imageHeight = 1250
+    val imageWidth = 1000
+    val imageHeight = 1000
     val cellDim = 1
     val width = imageWidth / cellDim
     val height = imageHeight / cellDim
 
     fun run() {
         // val visualizer: Visualizer = Base10Mod10Visualizer(width, height, "mersenne35.txt")
-        val visualizer: Visualizer = Mod4LSBVisualizer(width, height, "e_digits.txt", cursor = Visualizer.Point(width / 2, height / 2))
+        val visualizer: Visualizer = Mod4LSBVisualizer(width, height, "pi_digits.txt", cursor = Visualizer.Point(width / 4 * 3, height / 4))
         //val visualizer: Visualizer = Base4Mod4Visualizer(width, height, "base4_random.txt")
 
         val space = visualizer.visualize()
