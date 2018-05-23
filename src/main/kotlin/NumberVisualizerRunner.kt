@@ -19,7 +19,7 @@ class NumberVisualizer {
     val height = imageHeight / cellDim
 
     fun run() {
-        // val visualizer: Visualizer = Base10Mod10Visualizer(width, height, "M1398269.txt")
+        // val visualizer: Visualizer = Base10Mod10Visualizer(width, height, "mersenne35.txt")
         val visualizer: Visualizer = Mod4LSBVisualizer(width, height, "e_digits.txt")
         //val visualizer: Visualizer = Base4Mod4Visualizer(width, height, "base4_random.txt")
 
