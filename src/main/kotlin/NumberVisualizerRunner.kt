@@ -25,7 +25,7 @@ class NumberVisualizer {
         //val visualizer: Visualizer = Base4Mod4Visualizer(width, height, "base4_random.txt")
 
         val space = visualizer.visualize()
-        ColorFiller().fill(space)
+        //ColorFiller().fill(space)
         ImageIO.write(draw(space), "png", File("/tmp/numbers_${System.currentTimeMillis()}.png"))
     }
 
@@ -54,5 +54,5 @@ class NumberVisualizer {
         }
         return canvas
     }
-    
+
 }
