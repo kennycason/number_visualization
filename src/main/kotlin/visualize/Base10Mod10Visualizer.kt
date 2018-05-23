@@ -2,11 +2,11 @@ package visualize
 import org.apache.commons.io.IOUtils
 import Space2d
 
-class Base10Mod10Visualizer(width: Int, height: Int, resource: String) : Visualizer(width, height) {
-    val numberString = IOUtils
-            .toString(Thread.currentThread().contextClassLoader.getResourceAsStream(resource))
-            .replace("\n".toRegex(), "")
-    var cursor = Point((width / 4) * 2, (height / 5) * 3)
+class Base10Mod10Visualizer(width: Int,
+                            height: Int,
+                            resource: String,
+                            private var cursor: Point = Point((width / 10) * 5, (height / 10) * 5)) : Visualizer(width, height) {
+    private val numberString = NumberLoader.load(resource)
 
     override fun visualize(): Space2d {
         val space = Space2d(width, height)

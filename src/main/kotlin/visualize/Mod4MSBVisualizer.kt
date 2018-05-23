@@ -4,12 +4,12 @@ import org.apache.commons.io.IOUtils
 import java.math.BigInteger
 import Space2d
 
-class Mod4MSBVisualizer(width: Int, height: Int, resource: String) : Visualizer(width, height) {
-    val numberString = IOUtils
-            .toString(Thread.currentThread().contextClassLoader.getResourceAsStream(resource))
-            .replace("\n".toRegex(), "")
-    var number = BigInteger(numberString)
-    var cursor = Point((width / 4) * 2, (height / 4) * 2)
+class Mod4MSBVisualizer(width: Int,
+                        height: Int,
+                        resource: String,
+                        private var cursor: Point = Point((width / 10) * 5, (height / 10) * 5)) : Visualizer(width, height) {
+    private val numberString = NumberLoader.load(resource)
+    private var number = BigInteger(numberString)
 
     override fun visualize(): Space2d {
         val space = Space2d(width, height)
