@@ -36,4 +36,32 @@ As the cursor moves it draws a pixel who's color is determined by other means.
 <img src="https://raw.githubusercontent.com/kennycason/number_visualization/master/output/base4_100k_random_digits.png" width="700px"/>
 
 
+# Color Gradients
+
+To determine the color of the current pixel a value is stored in each (x,y) space equal to `iteration/max_iteration * 0xFFFFFF`. 
+
+The value can be mapped directly to an RGB. However, this does not result in a smooth color gradient. To generate a smooth gradient, I instead treat that value as an input into another function that "walks around" the color wheel (that you may see in many art apps). This results in a smoother color transition. More can be understood by reading [this](https://krazydad.com/tutorials/makecolors.php) post. This post provides a very good starting point for understanding color gradients. 
+
+In code the color function is shown below. `i` in this case is the `ith` element in the sequence being plotted to the grid. 
+
+```kotlin
+private fun toColor(i: Int,
+                    f1: Double = 0.3,
+                    f2: Double = 0.3,
+                    f3: Double = 0.3,
+                    p1: Double = 0.0,
+                    p2: Double = 2.0,
+                    p3: Double = 4.0,
+                    center: Int = 128,
+                    width: Int = 127): Color {
+    val r = Math.sin(f1 * i + p1) * width + center
+    val g = Math.sin(f2 * i + p2) * width + center
+    val b = Math.sin(f3 * i + p3) * width + center
+
+    return Color(r.toInt(), g.toInt(), b.toInt())
+}
+```
+
+
+
 
